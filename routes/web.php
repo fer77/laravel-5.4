@@ -14,3 +14,13 @@
 Route::get('/', function () {
     return view('welcome');
 });
+
+// Display a form:
+Route::get('form', function () {
+    return view('form');
+});
+
+// Process the form:
+Route::post('form', function () {
+    return request()->all();
+});
