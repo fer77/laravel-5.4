@@ -29,3 +29,14 @@ npm run:
   _dev_ compiles webpack one time.
   _production_ same as dev but triggered in a production environment that minifies file.
   _hot_ for 'hot' module reloading, good for Vue components
+
+## 4
+
+**fluent routing syntax**
+Routes can be prefixed, and added middleware:
+
+```php
+Route::name('dashboard')->middleware('auth')->get('/dashboard', function() {
+  //
+});
+```
