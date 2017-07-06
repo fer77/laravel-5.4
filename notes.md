@@ -40,3 +40,9 @@ Route::name('dashboard')->middleware('auth')->get('/dashboard', function() {
   //
 });
 ```
+
+## 5
+
+`php artisan help make:controller`
+
+When creating a controller in the command line `php artisan make:controller`, you now can use a new `--model` flag, and Laravel will generate a resourceful controller with the necessary boilerplate.
