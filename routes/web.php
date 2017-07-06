@@ -24,3 +24,5 @@ Route::get('form', function () {
 Route::post('form', function () {
     return request()->all();
 });
+
+Route::get('/posts/{post}/edit', 'PostsController@edit');
