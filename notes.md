@@ -46,3 +46,50 @@ Route::name('dashboard')->middleware('auth')->get('/dashboard', function() {
 `php artisan help make:controller`
 
 When creating a controller in the command line `php artisan make:controller`, you now can use a new `--model` flag, and Laravel will generate a resourceful controller with the necessary boilerplate.
+
+
+## 6
+
+```php
+@component ('panel')
+  @slot ('heading')
+    Hello World.
+  @endslot
+
+  @slot ('description')
+    blah, blah, blah...
+  @endslot
+@endcomponent
+```
+
+and in our HTML pass it as
+
+```html
+<p>{{ $heading }}</p>
+
+<div class="message">
+  {{ $description }}
+</div>
+```
+
+passing only
+
+```html
+<div class="message">
+  {{ $slot }}
+</div>
+```
+
+will default to whatever is typed in the component instead
+
+```php
+@component ('panel')
+  @slot ('heading')
+    Hello World.
+  @endslot
+
+    blah, blah, blah...
+@endcomponent
+```
+
+Keep using `@extends` for layout files and views, but for things like cards, panels, or modals `@component` maybe a better choice.
