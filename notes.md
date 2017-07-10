@@ -93,3 +93,41 @@ will default to whatever is typed in the component instead
 ```
 
 Keep using `@extends` for layout files and views, but for things like cards, panels, or modals `@component` maybe a better choice.
+
+## 6
+
+In Laravel 5.4 email may be Markdown combined with Blade components to provide more flexibility.
+
+1. `php artisan make:mail Welcome --markdown="emails.welcome"`
+2. Update .env file with email provider info.
+3. Run a test:
+  a. `php artisan tinker`
+  b. Might need to create new users `factory(App\User::class, 5)->create();`
+  c. `$welcome = new App\Mail\Welcome(App\User::first());`
+  d. `Mail::to(App\User::first())->send($welcome);`
+
+
+Laravel will compile markdown syntax.
+Any public property created in `welcome.php` will be available to the template.
+
+`{{ config('app.name') }}` changes the signature and header(`config/app`).
+
+To customize your email or create a couple difrent ones, move it to the `resources/views/vendor/mail` directory:
+
+`php artisan vendor:publish --tag="laravel"`
+
+Create your own theme `config/mail.php` 
+
+```php
+'markdown' => [
+        'theme' => 'custom-theme',
+
+        'paths' => [
+            resource_path('views/vendor/mail'),
+        ],
+    ],
+
+];
+```
+
+and create the file in `resources/views/vendor/mail/html/themes/custome-theme.css`
