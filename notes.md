@@ -131,3 +131,5 @@ Create your own theme `config/mail.php`
 ```
 
 and create the file in `resources/views/vendor/mail/html/themes/custome-theme.css`
+
+## 8
