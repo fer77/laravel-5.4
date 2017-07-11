@@ -1,5 +1,6 @@
 <?php
 
+use Facades\App\Services\Twitter;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -12,17 +13,17 @@
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    Twitter::publish('Here is my status.');
 });
 
 // Display a form:
-Route::get('form', function () {
-    return view('form');
-});
+// Route::get('form', function () {
+//     return view('form');
+// });
 
 // Process the form:
-Route::post('form', function () {
-    return request()->all();
-});
+// Route::post('form', function () {
+//     return request()->all();
+// });
 
-Route::get('/posts/{post}/edit', 'PostsController@edit');
+// Route::get('/posts/{post}/edit', 'PostsController@edit');
