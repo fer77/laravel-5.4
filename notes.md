@@ -133,3 +133,24 @@ Create your own theme `config/mail.php`
 and create the file in `resources/views/vendor/mail/html/themes/custome-theme.css`
 
 ## 8
+
+
+## 9 
+
+Laravel Dusk is a first-party package that simplifies tests against an actual browser. It can be used to test all forms of behavior and JavaScript interactions.  This can test multiple browsers.
+
+1. `composer require laravel/dusk`
+2. Add service provider in `config/app`
+3. `php artisan dusk:install`
+4. Update `.env`'s `APP_URL=`
+5. In `tests/Browser/ExampleTest.php` declare your tests:
+
+```php
+  public function testBasicExample()
+  {
+      $this->browse(function (Browser $browser) {
+          $browser->visit('/')
+                  ->assertSee('string(38)');
+      });
+  }
+```
