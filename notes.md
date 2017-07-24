@@ -116,7 +116,7 @@ To customize your email or create a couple difrent ones, move it to the `resourc
 
 `php artisan vendor:publish --tag="laravel"`
 
-Create your own theme `config/mail.php` 
+Create your own theme `config/mail.php`
 
 ```php
 'markdown' => [
@@ -135,7 +135,7 @@ and create the file in `resources/views/vendor/mail/html/themes/custome-theme.cs
 ## 8
 
 
-## 9 
+## 9
 
 Laravel Dusk is a first-party package that simplifies tests against an actual browser. It can be used to test all forms of behavior and JavaScript interactions.  This can test multiple browsers.
 
@@ -154,3 +154,7 @@ Laravel Dusk is a first-party package that simplifies tests against an actual br
       });
   }
 ```
+
+## 10
+
+Map Eloquent events to dedicated event classes.
